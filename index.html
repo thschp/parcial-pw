@@ -1,11 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Parcial PW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="scripts/scriptIndex.js" defer></script>
+    <link rel="stylesheet" href="styles/styleIndex.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg site-nav">
+            <div class="container-fluid page-width">
+                <a class="navbar-brand" href="#noticias" data-view="noticias">Noticias</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#noticias" data-view="noticias">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#admin" data-view="admin">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#signup" data-view="signup">Sign Up</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                About
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#mision" data-view="mision">Misión</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#vision" data-view="vision">Visión</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#equipo" data-view="equipo">Equipo de trabajo</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex search-form" id="searchForm">
+                        <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-width">
+        <section id="newsView">
+            <h1 class="visually-hidden">Noticias principales</h1>
+
+            <div class="news-grid">
+                <article class="news-card" data-title="Ciencia y tecnología">
+                    <div class="card-header">Noticia</div>
+                    <div class="card-body">
+                        <h2>Ciencia y tecnología</h2>
+                        <p>Los avances que están transformando nuestra vida cotidiana.</p>
+                        <div class="placeholder-image">Imagen de la noticia</div>
+                    </div>
+                    <a class="read-button" href="https://www.bbc.com/mundo" target="_blank" rel="noopener">
+                        Leer completa
+                    </a>
+                </article>
+
+                <article class="news-card" data-title="Actualidad nacional">
+                    <div class="card-header">Noticia</div>
+                    <div class="card-body">
+                        <h2>Actualidad nacional</h2>
+                        <p>Las noticias más importantes de Colombia y las regiones.</p>
+                        <div class="placeholder-image">Imagen de la noticia</div>
+                    </div>
+                    <a class="read-button" href="https://www.eltiempo.com" target="_blank" rel="noopener">
+                        Leer completa
+                    </a>
+                </article>
+
+                <article class="news-card" data-title="Cultura y sociedad">
+                    <div class="card-header">Noticia</div>
+                    <div class="card-body">
+                        <h2>Cultura y sociedad</h2>
+                        <p>Historias y eventos que impactan en nuestra sociedad.</p>
+                        <div class="placeholder-image">Imagen de la noticia</div>
+                    </div>
+                    <a class="read-button" href="https://www.elespectador.com" target="_blank" rel="noopener">
+                        Leer completa
+                    </a>
+                </article>
+            </div>
+
+            <section class="other-news">
+                <h2>Otras páginas de noticias...</h2>
+
+                <div class="link-columns">
+                    <div>
+                        <h3>NACIONALES</h3>
+                        <a href="https://www.eltiempo.com" target="_blank" rel="noopener">• Bogotá</a>
+                        <a href="https://www.eltiempo.com" target="_blank" rel="noopener">El Tiempo</a>
+                        <a href="https://www.elespectador.com" target="_blank" rel="noopener">El Espectador</a>
+                        <a href="https://www.lanacion.com.co" target="_blank" rel="noopener">• Neiva</a>
+                        <a href="https://www.elcolombiano.com" target="_blank" rel="noopener">La Nación</a>
+                        <a href="https://www.elheraldo.co" target="_blank" rel="noopener">El Diario del Huila</a>
+                    </div>
+
+                    <div>
+                        <h3>INTERNACIONALES</h3>
+                        <a href="https://www.bbc.com/mundo" target="_blank" rel="noopener">• EE.UU.</a>
+                        <a href="https://www.nytimes.com" target="_blank" rel="noopener">The New York Times</a>
+                        <a href="https://www.latimes.com" target="_blank" rel="noopener">Los Angeles Times</a>
+                        <a href="https://elpais.com" target="_blank" rel="noopener">• Argentina</a>
+                        <a href="https://www.lanacion.com.ar" target="_blank" rel="noopener">La Nación</a>
+                        <a href="https://www.clarin.com" target="_blank" rel="noopener">El Clarín</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="formView" class="form-panel d-none"></section>
+        <section id="aboutView" class="d-none"></section>
+    </main>
+
     
 </body>
 </html>
