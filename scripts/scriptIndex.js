@@ -54,26 +54,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 <form id="signupForm" class="row g-3">
                     <div class="col-md-6">
                         <label for="firstName">Nombres</label>
-                        <input id="firstName" class="form-control" required>
+                        <input id="name" class="form-control" required placeholder="Ej: Pepito">
                     </div>
                     <div class="col-md-6">
                         <label for="lastName">Apellidos</label>
-                        <input id="lastName" class="form-control" required>
+                        <input id="lastName" class="form-control" required placeholder="Ej: Pérez">
                     </div>
                     <div class="col-md-6">
                         <label for="email">Email</label>
-                        <input id="email" type="email" class="form-control" required>
+                        <input id="email" type="email" class="form-control" required placeholder="Ej: pepito@ejemplo.com">
                     </div>
                     <div class="col-md-6">
                         <label for="phone">Teléfono</label>
-                        <input id="phone" class="form-control" required>
+                        <input id="phone" class="form-control" required placeholder="Ej: 3201112233">
                     </div>
                     <div class="col-md-6">
                         <label for="password">Contraseña</label>
                         <input id="password" type="password" minlength="6" class="form-control" required>
                     </div>
                     <div class="col-12 form-actions">
-                        <button class="btn btn-success" type="submit">Registrar</button>
+                        <button class="btn btn-success" type="submit" onclick="validarDatos()">Registrar</button>
                         <button class="btn btn-danger" type="button" data-view="noticias">Cancelar</button>
                     </div>
                 </form>
@@ -96,7 +96,39 @@ document.addEventListener("DOMContentLoaded", () => {
             </form>
         `;
     }
+    /*
+    const regexText = /^[a-záéíóú\s]{2,50}$/i;
+    const regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/i;
 
+    function validarDatos() {
+    const errores = [];
+    const name = document.getElementById("name").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (!name || !lastName || !email ) {
+        alert("Por favor, complete todos los campos.");
+        return; 
+    } 
+    
+    if (!regexText.test(name)) {
+        errores.push("El nombre debe tener entre 2 y 50 letras.");
+    }
+    if (!regexText.test(lastName)) {
+        errores.push("El apellido debe tener entre 2 y 50 letras.");
+    }
+    if (!regexEmail.test(email)) {
+        errores.push("El correo no tiene un formato válido.");
+    }
+
+
+    if (errores.length > 0) {
+        alert(errores.join("\n"));
+    } else {
+        alert(`Registro exitoso\n\nResumen de los datos:\n- Nombre: ${name}\n- Apellido: ${lastName}\n- Correo: ${email}`);
+    }
+    }
+    */
     function renderAbout(type) {
         hideAllViews();
         aboutView.classList.remove("d-none");
@@ -249,9 +281,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener("submit", (event) => {
-        if (event.target.id === "loginForm" || event.target.id === "signupForm") {
-            event.preventDefault();
-            alert("Formulario enviado correctamente.");
-        }
+        const regexText = /^[a-záéíóú\s]{2,50}$/i;
+        const regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/i; 
+        const regexPhone = /^\d{10,10}$/;
+        const errores = [];
+    const name = document.getElementById("name").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!name || !lastName || !email || !phone) {
+        alert("Por favor, complete todos los campos.");
+        return; 
+    } 
+    
+    if (!regexText.test(name)) {
+        errores.push("El nombre debe tener entre 2 y 50 letras.");
+    }
+    if (!regexText.test(lastName)) {
+        errores.push("El apellido debe tener entre 2 y 50 letras.");
+    }
+    if (!regexEmail.test(email)) {
+        errores.push("El correo no tiene un formato válido.");
+    }
+    if (!regexPhone.test(phone)) {
+        errores.push("El número de teléfono debe tener 10 dígitos.");
+    }
+
+    if (errores.length > 0) {
+        alert(errores.join("\n"));
+    } else {
+        alert(`Registro exitoso\n\nResumen de los datos:\n- Nombres: ${name}\n- Apellidos: ${lastName}\n- Correo: ${email}\n- Teléfono: ${phone}`);
+    }
     });
 });
